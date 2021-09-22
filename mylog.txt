@@ -1,0 +1,9 @@
+ [ask@yoga todo-app]$ rails generate model User
+Running via Spring preloader in process 43271
+      invoke  active_record
+      create    db/migrate/20210913105153_create_users.rb
+      create    app/models/user.rb
+      invoke    test_unit
+      create      test/models/user_test.rb
+      create      test/fixtures/users.yml
+[ask@yoga todo-app]$
