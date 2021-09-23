@@ -1,0 +1,5 @@
+ todo-cum-user app
+ How users table is created
+ ---------------------------
+ rails migration CreateUser name:string email:string password:string
+ rails db:migrate
