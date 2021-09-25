@@ -8,8 +8,8 @@ class UsersController < ApplicationController
 
   def show
     id = params[:id]
-    user = User.find(id)
-    response_text = user.to_pleasant_string
+    user = User.find_by(id: id)
+    response_text = (user == nil) ? "Not Found!" : user.to_pleasant_string
     render plain: response_text
   end
 
@@ -26,6 +26,7 @@ class UsersController < ApplicationController
     email = params[:email]
     password = params[:password]
     user = User.find_by(email: email, password: password)
-    render plain: user.present?
+    response_text = (user == nil) ? "false" : "true"
+    render plain: response_text
   end
 end
