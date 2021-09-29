@@ -1,6 +1,5 @@
 body {
   font-family: Open Sans, sans-serif;
-  max-width: 460px;
   margin: 25px auto;
   margin-top: 60px;
 }
@@ -20,7 +19,7 @@ body {
 
 .AddTodo {
   display: flex;
-  height: 32px;
+  height: 24px;
   align-items: stretch;
   margin-bottom: 24px;
 }
