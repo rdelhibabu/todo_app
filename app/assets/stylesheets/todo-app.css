@@ -77,27 +77,21 @@ body {
   color: #453c52;
 }
 
+.TodoItem-dueDate {
+  font-size: 10px;
+  color: #3e3946;
+  margin-left: 8px;
+}
+
 .TodoItem-container {
   display: flex;
   padding: 2px 8px;
   align-items: center;
 }
 
-.TodoItem-container:hover {
-  background-color: #a9afcc;
-}
-
 .TodoItem-checkbox {
   width: 16px;
   height: 16px;
-  margin-right: 10px;
-}
-
-.TodoItem-overdueLabel {
-  font-size: 12px;
-  margin-left: 10px;
-  color: #c53030;
-  display: inline;
 }
 
 .TodoItem-remainingLabel {
@@ -105,17 +99,4 @@ body {
   margin-left: 10px;
   color: gray;
   display: inline;
-}
-
-.TodoItem-delete {
-  visibility: hidden;
-  margin-left: 8px;
-}
-
-.TodoItem-delete > img {
-  width: 20px;
-}
-
-.TodoItem-container:hover .TodoItem-delete {
-  visibility: visible;
 }
