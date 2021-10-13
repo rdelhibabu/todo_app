@@ -1,11 +1,10 @@
-
 class Todo < ActiveRecord::Base
   def due_today?
     due_date == Date.today
   end
 
   def self.overdue
-    where("due_date < ?", Date.today)
+    where("due_date < ? and completed = ?", Date.today, false)
   end
 
   def self.due_today
@@ -18,28 +17,6 @@ class Todo < ActiveRecord::Base
 
   def self.completed
     where(completed: true)
-  end
-
-  def to_displayable_string
-    display_status = completed ? "[X]" : "[ ]"
-    display_date = due_today? ? nil : due_date
-    "#{id}. #{display_status} #{todo_text} #{display_date}"
-  end
-
-  def self.show_list
-    puts "My Todo list\n\n"
-
-    puts "OverDue\n"
-    puts overdue.map { |todo| todo.to_displayable_string }
-    puts "\n\n"
-
-    puts "Due Today\n"
-    puts due_today.map { |todo| todo.to_displayable_string }
-    puts "\n\n"
-
-    puts "Due Later\n"
-    puts due_later.map { |todo| todo.to_displayable_string }
-    puts "\n\n"
   end
 
   def self.add_task(todo)
