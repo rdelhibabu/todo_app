@@ -31,4 +31,9 @@ class Todo < ActiveRecord::Base
     todo_for_completion.save
     return todo_for_completion
   end
+
+  def to_pleasant_string
+    display_status = completed ? "[X]" : "[ ]"
+    "#{id}. #{display_status} #{todo_text} #{due_date.to_s(:long)}"
+  end
 end
