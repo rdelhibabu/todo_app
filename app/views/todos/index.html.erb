@@ -9,49 +9,20 @@
     <% end %>
     <%= render partial: "todo-section", locals: {
       section_title: "Overdue",
-      todos: @todos.overdue,
+      todos: Todo.overdue,
       show_due_date: true,
     } %>
+
     <%= render partial: "todo-section", locals: {
       section_title: "Due Today",
-      todos: @todos.due_today,
+      todos: Todo.due_today,
       show_due_date: false,
     } %>
+
     <%= render partial: "todo-section", locals: {
       section_title: "Due Later",
-      todos: @todos.due_later,
+      todos: Todo.due_later,
       show_due_date: true,
     } %>
-  </article>
-</main>
-
-
-<main class="TodoPageMain">
-  <article>
-    <h1 class="TodoPage-title"> My To-do List</h1>
-    <form class="AddTodo" action="/todos" method="POST">
-      <input class="AddTodo-text" type="text" placeholder="What's next?" name="todo_text" />
-      <input class="AddTodo-date" type="date" name="due_date" />
-      <input class="AddTodo-button" type="submit" value="Add" />
-    </form>
-
-    <%= render partial: "todo-section", locals: {
-                 section_title: "Overdue",
-                 todos: Todo.overdue,
-                 show_due_date: true,
-               } %>
-
-    <%= render partial: "todo-section", locals: {
-                 section_title: "Due Today",
-                 todos: Todo.due_today,
-                 show_due_date: false,
-               } %>
-
-    <%= render partial: "todo-section", locals: {
-                 section_title: "Due Later",
-                 todos: Todo.due_later,
-                 show_due_date: true,
-               } %>
-
   </article>
 </main>
