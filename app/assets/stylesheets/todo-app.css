@@ -123,7 +123,7 @@ body {
 }
 
 .delete-icon {
-  width: 25px;
+  width: 20px;
 }
 
 .TodoItem-container:hover .TodoItem-delete {
