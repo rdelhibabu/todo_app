@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> TodoApp </title>
+    <title>TodoApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application',
-                             media: 'all',
-                            'data-turbolinks-track': 'reload'
-    %>
-    <%= javascript_pack_tag 'application',
-                            'data-turbolinks-track': 'reload'
-    %>
+                            media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <% if @current_user %>
+      <p class="UserHeader">
+        Welcome <%= @current_user.first_name%>
+        <%= link_to "Sign-out", destroy_session_path, method: "delete"  %>
+      </p>
+    <%end%>
+    <% if flash[:error] %>
+      <p class="Flash-error">
+        <%= flash[:error] %>
+      <%end%>
+    </p>
     <%= yield %>
   </body>
 </html>

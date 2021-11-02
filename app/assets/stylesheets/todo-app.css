@@ -122,8 +122,8 @@ body {
   margin-left: 8px;
 }
 
-.delete-icon {
-  width: 20px;
+.TodoItem-delete > img {
+  width: 5px;
 }
 
 .TodoItem-container:hover .TodoItem-delete {

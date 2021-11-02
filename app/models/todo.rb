@@ -1,6 +1,16 @@
 class Todo < ActiveRecord::Base
+  validates :todo_text, presence: true
+  validates :due_date, presence: true
+  validates :todo_text, length: { minimum: 2 }
+
+  belongs_to :user
+
   def due_today?
     due_date == Date.today
+  end
+
+  def self.of_user(user)
+    all.where(user_id: user.id)
   end
 
   def self.overdue
@@ -30,10 +40,5 @@ class Todo < ActiveRecord::Base
     todo_for_completion.completed = true
     todo_for_completion.save
     return todo_for_completion
-  end
-
-  def to_pleasant_string
-    display_status = completed ? "[X]" : "[ ]"
-    "#{id}. #{display_status} #{todo_text} #{due_date.to_s(:long)}"
   end
 end
